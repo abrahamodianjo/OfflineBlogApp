@@ -19,14 +19,22 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.red,
       ),
+      //
       home: AnimatedSplashScreen(
-        splash: 'Offline Blog by Abraham Odianjo',
+        splash: Container(
+          child: Text(
+            ' Abraham odianjo',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 36
+            ),
+          ),
+        ),
         duration: 2000,
         nextScreen: MyHomePage(title: 'My Feed'),
         splashTransition: SplashTransition.fadeTransition,
         pageTransitionType: PageTransitionType.fade,
         backgroundColor: Colors.red,
-
       ),
     );
   }
