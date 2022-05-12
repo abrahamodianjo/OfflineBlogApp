@@ -1,4 +1,6 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'home.dart';
 
 void main() {
@@ -17,7 +19,15 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'My Feed'),
+      home: AnimatedSplashScreen(
+        splash: 'Offline Blog by Abraham Odianjo',
+        duration: 2000,
+        nextScreen: MyHomePage(title: 'My Feed'),
+        splashTransition: SplashTransition.fadeTransition,
+        pageTransitionType: PageTransitionType.fade,
+        backgroundColor: Colors.red,
+
+      ),
     );
   }
 }
