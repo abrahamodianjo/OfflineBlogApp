@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         duration: 2000,
-        nextScreen: MyHomePage(title: 'My Feed'),
+        nextScreen: MyHomePage(title: 'Feeds'),
         splashTransition: SplashTransition.fadeTransition,
         pageTransitionType: PageTransitionType.fade,
         backgroundColor: Colors.red,

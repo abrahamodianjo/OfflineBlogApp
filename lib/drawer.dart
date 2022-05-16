@@ -14,7 +14,7 @@ class NavigationDrawerWidget extends StatelessWidget {
           const SizedBox(
             height:48,
           ),
-          buildMenuItem(text: 'Home', icon: Icons.home),
+          buildMenuItem(text: 'Feeds', icon: Icons.home, onClicked: ()=>selectedItem(context, 0)),
         ],
         ),
       ),
@@ -25,10 +25,25 @@ class NavigationDrawerWidget extends StatelessWidget {
 Widget buildMenuItem({
   required String text,
   required IconData icon,
+  VoidCallback? onClicked,
 }) {
   final color = Colors.white;
   return ListTile(
     leading: Icon(icon, color: color,),
-    title: Text(text, style: TextStyle(color:color), ),
+    title: Text(text,
+      style: TextStyle(color:color),
+
+    ),
+    onTap: onClicked,
   );
+}
+
+void selectedItem(BuildContext context, int index){
+  Navigator.of(context).pop();
+  switch(index){
+    case 0:
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyHomePage(title: 'feed',
+      ),
+      ));
+}
 }
