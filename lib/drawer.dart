@@ -14,7 +14,21 @@ class NavigationDrawerWidget extends StatelessWidget {
           const SizedBox(
             height:48,
           ),
-          buildMenuItem(text: 'Feeds', icon: Icons.home, onClicked: ()=>selectedItem(context, 0)),
+          buildMenuItem(
+              text: 'Feeds',
+              icon: Icons.home,
+              onClicked: ()=>selectedItem(context, 0)),
+          const SizedBox(
+            height:16,
+          ),
+          Divider(color: Colors.white,), const SizedBox(height: 16,),
+          buildMenuItem(
+              text: 'Add Blog',
+              icon: Icons.add_circle_outline,
+              onClicked: ()=>selectedItem(context, 1)),
+          const SizedBox(
+            height:16,
+          ),
         ],
         ),
       ),
@@ -32,7 +46,6 @@ Widget buildMenuItem({
     leading: Icon(icon, color: color,),
     title: Text(text,
       style: TextStyle(color:color),
-
     ),
     onTap: onClicked,
   );
