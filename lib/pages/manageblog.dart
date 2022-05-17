@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../drawer.dart';
 
-class ManageBlog extends StatelessWidget{
-  const ManageBlog ({ Key? key}) : super(key: key);
+class ManageBlogPage extends StatelessWidget{
+  const ManageBlogPage ({ Key? key}) : super(key: key);
 
   @override
   Widget build (BuildContext context){

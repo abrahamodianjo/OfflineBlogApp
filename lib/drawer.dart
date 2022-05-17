@@ -1,6 +1,7 @@
 import  'package:flutter/material.dart';
 import 'home.dart';
-import '';
+import 'pages/addblogpage.dart';
+import 'pages/manageblog.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
 
@@ -53,6 +54,7 @@ Widget buildMenuItem({
   );
 }
 
+// this is used to naviagte to the page
 void selectedItem(BuildContext context, int index){
   Navigator.of(context).pop();
   switch(index){
@@ -62,8 +64,15 @@ void selectedItem(BuildContext context, int index){
       ));
       break;
     case 1:
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddBlogPage(title: 'Add Blog',
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddBlogPage(
       ),
       ));
+      break;
+    case 2:
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ManageBlogPage(
+      ),
+      ));
+      break;
+
 }
 }
