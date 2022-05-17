@@ -26,4 +26,9 @@ Future <Database> get database async{
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
   Future _createDB(Database db, int version) async{}
+
+  Future close()async{
+  final db = await instance.database;
+  db.close();
+  }
 }
