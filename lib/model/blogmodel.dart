@@ -42,3 +42,14 @@ class Blog{
 
 });
 }
+
+// create a map string object we get to jOSN
+Map<String, Object?> toJson() =>{
+  BlogFields.id:id,
+  BlogFields.title:title,
+  BlogFields.isImportant:isImportant?1:0, //remeber isImportant is a boolean so its to make it either true or false
+  BlogFields.number:number,
+  BlogFields.image:image,
+  BlogFields.description:description,
+  BlogFields.time:createdTime.toIso8601String(),
+}

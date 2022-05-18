@@ -54,6 +54,9 @@ Future <Database> get database async{
   }
 
   // now to create a blog
+  Future<Blog> create(Blog blog) async{
+  final db = await instance.database;
+  }
 
   //this closes the database
   Future close()async{
