@@ -1,18 +1,20 @@
 final String blogTable = 'blogmodel';
 
 //create the blog fields for the table
-// these include the id, number, title, descrption of the blog, then the time. while is important
+// these include the id, number, title, description of the blog, then the time. while is important
 class BlogFields {
   static final List<String> values =[
-    id, isImportant, number, title, description, time
+    id, isImportant, number, title, description, time, image
   ];
 
-  static final String id = 'id';
+  static final String id = '_id';
   static final String isImportant = 'isImportant';
   static final String number = 'number';
   static final String title = 'title';
+  static final String image = 'image';
   static final String description = 'description';
   static final String time = 'time';
+
 
 }
 
@@ -24,6 +26,7 @@ class Blog{
     final bool isImportant;
     final int number;
     final String title;
+    final String image;
     final String description;
     final DateTime createdTime;
 
@@ -33,11 +36,9 @@ class Blog{
       required this.isImportant,
       required this.number,
       required this.title,
+      required this.image,
       required this.description,
       required this.createdTime
 
-})
-
-
-
+});
 }
