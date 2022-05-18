@@ -62,11 +62,15 @@ class Blog{
 
     static Blog fromJson(Map<String, Object?> json) => Blog(
       id: json[BlogFields.id] as int?,
-      title: json[BlogFields.title] as String,    
+      title: json[BlogFields.title] as String,
+      isImportant: json[BlogFields.isImportant] as bool,
+      image: json[BlogFields.image] as String,
+      description: json[BlogFields.description] as String,
+      createdTime: DateTime.parse(json[BlogFields.time] as String),
     );
 
 
-    // create a map string object we get to jOSN
+    // create map string object to jOSN
     Map<String, Object?> toJson() =>{
       BlogFields.id:id,
       BlogFields.title:title,
