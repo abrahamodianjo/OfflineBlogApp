@@ -54,8 +54,55 @@ Future <Database> get database async{
   }
 
   // now to create a blog
-  Future<Blog> create(Blog blog) async{
+  Future<Blog> createBlogItem(Blog blog) async{
+    final db = await instance.database;
+    final id = await db.insert(blogTable, blog.toJson());
+    return blog.copy(id: id);
+  }
+
+  Future<Blog> readBlogItem(int id) async {
   final db = await instance.database;
+
+  //tells the table to read the blog items via the id
+  final maps = await db.query(
+    blogTable,
+    columns: BlogFields.values,
+    where: '${BlogFields.id} =?',
+    whereArgs:[id],
+
+  );
+  // if the blog is not empty, it should return the first item
+
+  if (maps.isNotEmpty){
+    return Blog.fromJson(maps.first);
+  }
+  else
+  //else it should return id not found
+    {
+      throw Exception('ID $id is not found in blog item');
+    }
+  }
+// update blog items using the id
+  Future<int> updateBlogItem(Blog blog) async {
+  final db = await instance.database;
+
+  return await db.update(
+    blogTable,
+    blog.toJson(),
+    where: '${BlogFields.id} = ?',
+    whereArgs: [blog.id],
+
+  );
+
+  }
+// used to deelete blog items using the id
+  Future<int> delete(int id) async {
+  final db = await instance.database;
+  return await db.delete(
+    blogTable,
+    where: '${BlogFields.id} = ?',
+    whereArgs: [id],
+  );
   }
 
   //this closes the database

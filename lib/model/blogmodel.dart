@@ -1,3 +1,4 @@
+//call the table
 final String blogTable = 'blogmodel';
 
 //create the blog fields for the table
@@ -41,15 +42,39 @@ class Blog{
       required this.createdTime
 
 });
+    Blog copy({
+      int? id,
+      String? title,
+      bool? isImportant,
+      String? image,
+      String? description,
+      DateTime? createdTime,
+}) =>
+        Blog(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      isImportant: isImportant ?? this.isImportant,
+      image: image ?? this.image,
+      description: description ?? this.description,
+      createdTime: createdTime ?? this.createdTime,
+
+    );
+
+    static Blog fromJson(Map<String, Object?> json) => Blog(
+      id: json[BlogFields.id] as int?,
+      title: json[BlogFields.title] as String,    
+    );
+
+
+    // create a map string object we get to jOSN
+    Map<String, Object?> toJson() =>{
+      BlogFields.id:id,
+      BlogFields.title:title,
+      BlogFields.isImportant:isImportant?1:0, //remember isImportant is a boolean so its to make it either true or false
+      BlogFields.number:number,
+      BlogFields.image:image,
+      BlogFields.description:description,
+      BlogFields.time:createdTime.toIso8601String(),
+    };
 }
 
-// create a map string object we get to jOSN
-Map<String, Object?> toJson() =>{
-  BlogFields.id:id,
-  BlogFields.title:title,
-  BlogFields.isImportant:isImportant?1:0, //remeber isImportant is a boolean so its to make it either true or false
-  BlogFields.number:number,
-  BlogFields.image:image,
-  BlogFields.description:description,
-  BlogFields.time:createdTime.toIso8601String(),
-}
